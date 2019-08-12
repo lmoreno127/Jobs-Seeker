@@ -1,0 +1,2 @@
+class Appjob < ApplicationRecord
+end

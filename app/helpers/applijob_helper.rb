@@ -1,0 +1,2 @@
+module ApplijobHelper
+end
