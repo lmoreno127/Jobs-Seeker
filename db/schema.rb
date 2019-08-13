@@ -13,8 +13,8 @@
 ActiveRecord::Schema.define(version: 2019_08_12_123155) do
 
   create_table "appjobs", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.integer "job_id"
   end
 
   create_table "companies", force: :cascade do |t|
@@ -22,8 +22,9 @@ ActiveRecord::Schema.define(version: 2019_08_12_123155) do
     t.string "encrypted_password", default: "", null: false
     t.string "name"
     t.string "address"
-    t.string "string"
     t.string "profile_photo"
+    t.string "city"
+    t.string "department"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -38,6 +39,7 @@ ActiveRecord::Schema.define(version: 2019_08_12_123155) do
     t.string "description"
     t.string "city"
     t.integer "required_experience"
+    t.integer "company_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -46,7 +48,8 @@ ActiveRecord::Schema.define(version: 2019_08_12_123155) do
     t.string "name"
     t.string "last_name"
     t.string "disabilities"
-    t.string "username"
+    t.string "city"
+    t.string "department"
     t.string "curriculum"
     t.string "profile_photo"
     t.string "reset_password_token"

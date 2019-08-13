@@ -5,6 +5,7 @@ class CreateJobs < ActiveRecord::Migration[5.2]
       t.string :description
       t.string :city
       t.integer :required_experience
+      t.integer :company_id
     end
   end
 end

@@ -9,9 +9,11 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :last_name
       t.string :disabilities
-      t.string :username
+      t.string :city
+      t.string :department
       t.string :curriculum
       t.string :profile_photo
+      
       
 
       ## Recoverable

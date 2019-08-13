@@ -1,5 +1,5 @@
 import React from "react";
-import Nav from "react-bootstrap/Nav";
+import Navbar from "./Navbar";
 import Carousel from "react-bootstrap/Carousel";
 import Im1 from "./im1.jpg";
 import Im2 from "./im2.jpg";
@@ -11,7 +11,7 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import SignIn from "./SignIn";
 import SignUpUser from "./SignUpUser";
-
+import SignUpCompany from "./SignUpCompany";
 class Main extends React.Component {
   constructor() {
     super();
@@ -26,7 +26,7 @@ class Main extends React.Component {
     this.setState({ showModalSU: true });
   };
   hideSignUp = () => {
-    this.setState({ showModalSU: false });
+    this.setState({ showModalSU: false, showChoose: true, isUser: false });
   };
 
   showSignIn = () => {
@@ -38,17 +38,7 @@ class Main extends React.Component {
   render() {
     return (
       <div>
-        <Nav>
-          <Nav.Item>
-            <Nav.Link>Jobs</Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link onClick={this.showSignIn}>Sign In</Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link onClick={this.showSignUp}>Sign Up</Nav.Link>
-          </Nav.Item>
-        </Nav>
+        <Navbar showSignIn={this.showSignIn} showSignUp={this.showSignUp} />
         <Carousel interval="2000">
           <Carousel.Item>
             <img className="d-block w-50" src={Im1} alt="First slide" />
