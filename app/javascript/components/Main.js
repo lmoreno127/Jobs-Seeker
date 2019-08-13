@@ -9,16 +9,17 @@ import JobsSection from "./JobsSection";
 import CompanySection from "./CompanySection";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
 import SignIn from "./SignIn";
-import Choose from "./Choose";
+import SignUpUser from "./SignUpUser";
+
 class Main extends React.Component {
   constructor() {
     super();
     this.state = {
       showModalSU: false,
       showModalSI: false,
-      showChoose: true
+      showChoose: true,
+      isUser: false
     };
   }
   showSignUp = () => {
@@ -32,7 +33,7 @@ class Main extends React.Component {
     this.setState({ showModalSI: true });
   };
   hideSignIn = () => {
-    this.setState({ showModalSI: false });
+    this.setState({ showModalSI: false, showChoose: true, isUser: false });
   };
   render() {
     return (
@@ -84,25 +85,34 @@ class Main extends React.Component {
           <Modal.Header closeButton>
             <Modal.Title>Sign In</Modal.Title>
           </Modal.Header>
-          <Modal.Body>
-            <h2>Are you ?</h2>
-            <Button
-              variant="primary"
-              onClick={() => {
-                console.log("company");
-              }}
-            >
-              Company
-            </Button>
-            <Button
-              variant="success"
-              onClick={() => {
-                console.log("user");
-              }}
-            >
-              User
-            </Button>
-          </Modal.Body>
+          {this.state.showChoose ? (
+            <Modal.Body>
+              <h2>Sign In as</h2>
+              <Button
+                variant="primary"
+                onClick={() => {
+                  this.setState({ showChoose: false });
+                }}
+              >
+                Company
+              </Button>
+              <Button
+                variant="success"
+                onClick={() => {
+                  this.setState({ showChoose: false, isUser: true });
+                }}
+              >
+                User
+              </Button>
+            </Modal.Body>
+          ) : (
+            <Modal.Body>
+              <SignIn
+                ro={this.state.isUser ? "/users/sign_in" : "/companies/sign_in"}
+              />
+            </Modal.Body>
+          )}
+
           <Modal.Footer>
             {/* <Button variant="secondary" onClick={handleClose}>
               Close
@@ -116,7 +126,35 @@ class Main extends React.Component {
           <Modal.Header closeButton>
             <Modal.Title>Sign Up</Modal.Title>
           </Modal.Header>
-          <Modal.Body>Sign Up</Modal.Body>
+          {this.state.showChoose ? (
+            <Modal.Body>
+              <h2>Sign Up as</h2>
+              <Button
+                variant="primary"
+                onClick={() => {
+                  this.setState({ showChoose: false });
+                }}
+              >
+                Company
+              </Button>
+              <Button
+                variant="success"
+                onClick={() => {
+                  this.setState({ showChoose: false, isUser: true });
+                }}
+              >
+                User
+              </Button>
+            </Modal.Body>
+          ) : this.state.isUser ? (
+            <Modal.Body>
+              <SignUpUser />
+            </Modal.Body>
+          ) : (
+            <Modal.Body>
+              <SignUpCompany />
+            </Modal.Body>
+          )}
           <Modal.Footer>
             {/* <Button variant="secondary" onClick={handleClose}>
               Close
