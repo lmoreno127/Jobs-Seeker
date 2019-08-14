@@ -84,7 +84,10 @@ class SignUpCompany extends React.Component {
             {this.state.cities}
           </Form.Control>
         </Form.Group>
-
+        <Form.Group controlId="PhotoProfile">
+          <Form.Label>Photo Profile</Form.Label>
+          <Form.Control type="file" name="company[profile_photo]" />
+        </Form.Group>
         <Button variant="primary" type="submit">
           Sign Up
         </Button>

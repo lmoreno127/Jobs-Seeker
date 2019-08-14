@@ -44,7 +44,9 @@ class CompanySection extends React.Component {
           </div>
         </div>
         <h2>Do you want to hire great people with disabilites?</h2>
-        <Button variant="success">Sign Up</Button>
+        <Button variant="success" onClick={this.props.showSignUp}>
+          Sign Up
+        </Button>
       </div>
     );
   }

@@ -4,10 +4,14 @@ import Button from "react-bootstrap/Button";
 class SignIn extends React.Component {
   render() {
     return (
-      <Form action={this.props.ro}>
+      <Form action={this.props.ro} method="post">
         <Form.Group controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
-          <Form.Control type="email" placeholder="Enter email" />
+          <Form.Control
+            type="email"
+            placeholder="Enter email"
+            name={this.props.namef.email}
+          />
           <Form.Text className="text-muted">
             We'll never share your email with anyone else.
           </Form.Text>
@@ -15,7 +19,11 @@ class SignIn extends React.Component {
 
         <Form.Group controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
-          <Form.Control type="password" placeholder="Password" />
+          <Form.Control
+            type="password"
+            placeholder="Password"
+            name={this.props.namef.password}
+          />
         </Form.Group>
         <Button variant="primary" type="submit">
           Submit

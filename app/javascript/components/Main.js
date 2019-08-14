@@ -38,7 +38,11 @@ class Main extends React.Component {
   render() {
     return (
       <div>
-        <Navbar showSignIn={this.showSignIn} showSignUp={this.showSignUp} />
+        <Navbar
+          showSignIn={this.showSignIn}
+          showSignUp={this.showSignUp}
+          user={this.props.user}
+        />
         <Carousel interval="2000">
           <Carousel.Item>
             <img className="d-block w-50" src={Im1} alt="First slide" />
@@ -70,7 +74,12 @@ class Main extends React.Component {
           </Carousel.Item>
         </Carousel>
         <JobsSection />
-        <CompanySection />
+        {!this.props.user ? (
+          <CompanySection showSignUp={this.showSignUp} />
+        ) : (
+          <h1>Profile Info</h1>
+        )}
+
         <Modal show={this.state.showModalSI} onHide={this.hideSignIn}>
           <Modal.Header closeButton>
             <Modal.Title>Sign In</Modal.Title>
@@ -99,6 +108,11 @@ class Main extends React.Component {
             <Modal.Body>
               <SignIn
                 ro={this.state.isUser ? "/users/sign_in" : "/companies/sign_in"}
+                namef={
+                  this.state.isUser
+                    ? { email: "user[email]", password: "user[password]" }
+                    : { email: "company[email]", password: "company[password]" }
+                }
               />
             </Modal.Body>
           )}
