@@ -1,12 +1,13 @@
 import React from "react";
 
-class JobD extends React.Component {
+class showUser extends React.Component {
   render() {
     return (
       <div>
-        <h1>Show Job</h1>
+        <h1>Show User</h1>
       </div>
     );
   }
 }
-export default JobD;
+
+export default showUser;

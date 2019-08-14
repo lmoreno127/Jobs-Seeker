@@ -6,15 +6,32 @@ class Navbar extends React.Component {
     return (
       <Nav>
         <Nav.Item>
-          <Nav.Link href="">Jobs</Nav.Link>
+          <Nav.Link href="/">Home</Nav.Link>
         </Nav.Item>
+        {!this.props.user ||
+        this.props.user.info.hasOwnProperty("last_name") ? (
+          <Nav.Item>
+            <Nav.Link href="">Jobs</Nav.Link>
+          </Nav.Item>
+        ) : (
+          undefined
+        )}
+
         {this.props.user ? (
           <React.Fragment>
             <Nav.Item>
               <Nav.Link href={this.props.user.signOut}>Sign Out</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link href="">My Profile</Nav.Link>
+              <Nav.Link
+                href={
+                  this.props.user.info.hasOwnProperty("last_name")
+                    ? `/user`
+                    : `/companies/${this.props.user.info.id}`
+                }
+              >
+                My Profile
+              </Nav.Link>
             </Nav.Item>
           </React.Fragment>
         ) : (

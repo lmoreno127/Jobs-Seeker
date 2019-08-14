@@ -3,7 +3,7 @@ class UsersController < ApplicationController
      @users=User.all
     end
     def show
-       @user=current_user 
+        render component: 'showUser', props:{user: current_user}
     end
     def destroy
         @user=current_user

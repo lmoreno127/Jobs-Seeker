@@ -1,12 +1,37 @@
 import React from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-class CreateJob extends React.Component {
+import Navbar from "./Navbar";
+class FormJob extends React.Component {
+  updateJob = event => {
+    if (this.props.method === "") {
+      event.preventDefault();
+      const formData = new FormData(document.querySelector(".form-job"));
+      fetch(`/companies/${this.props.company.id}/jobs/${this.props.job.id}`, {
+        method: "put",
+        body: formData
+      })
+        .then(response => {
+          if (response.status === 200) {
+            location.replace(`/companies/${this.props.company.id}/jobs`);
+          }
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    }
+  };
   render() {
     return (
       <div>
-        <h1>Create Job</h1>
-        <Form action={`/companies/${this.props.company.id}/jobs`} method="post">
+        <Navbar user={{ info: this.props.company }} />
+        <h1>{this.props.job ? "Update Job" : "Create Job"}</h1>
+        <Form
+          action={`/companies/${this.props.company.id}/jobs`}
+          method={this.props.method}
+          className="form-job"
+          onSubmit={this.updateJob}
+        >
           <Form.Group controlId="title">
             <Form.Label>Title</Form.Label>
             <Form.Control
@@ -41,4 +66,4 @@ class CreateJob extends React.Component {
   }
 }
 
-export default CreateJob;
+export default FormJob;

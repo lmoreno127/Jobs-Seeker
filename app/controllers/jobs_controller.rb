@@ -7,8 +7,7 @@ class JobsController < ApplicationController
      render component: 'MyJobs', props: { company: current_company,jobs: current_company.jobs } 
     end
     def new
-        @job =Job.new
-        render component: 'CreateJob', props: { company: current_company } 
+        render component: 'FormJob', props: { company: current_company, method: "post" } 
     end
     def create
         @job=Job.new(job_params)
@@ -20,17 +19,21 @@ class JobsController < ApplicationController
         
     end
     def show
-        @job=Job.find(params[:id])
-        render component: 'jobD',props: { company: current_company, job:@job } 
+        
     end
     def edit
-
+        @job=Job.find(params[:id])
+        render component: 'FormJob', props: { company: current_company, method: "",job:@job }
     end
     def update
-
+        @job=Job.find(params[:id])
+        @job.update(job_params)
+        render component: 'MyJobs', props: { company: current_company,jobs: current_company.jobs }
     end
     def destroy
-     
+     @job=Job.find(params[:id])
+     @job.destroy
+     render component: 'MyJobs', props: { company: current_company,jobs: current_company.jobs }
     end
 
     private
