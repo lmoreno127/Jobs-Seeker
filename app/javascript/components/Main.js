@@ -1,12 +1,12 @@
 import React from "react";
 import Navbar from "./Navbar";
 import Carousel from "react-bootstrap/Carousel";
-import Im1 from "./im1.jpg";
-import Im2 from "./im2.jpg";
-import Im3 from "./im3.jpg";
-import Im4 from "./im4.jpg";
+import Im1 from "./imgs/im1.jpg";
+import Im2 from "./imgs/im2.jpg";
+import Im3 from "./imgs/im3.jpg";
+import Im4 from "./imgs/im4.jpg";
 import JobsSection from "./JobsSection";
-import CompanySection from "./CompanySection";
+import CompanySection from "./companysection/CompanySection";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import SignIn from "./SignIn";
@@ -36,6 +36,7 @@ class Main extends React.Component {
     this.setState({ showModalSI: false, showChoose: true, isUser: false });
   };
   render() {
+    console.log(this.props.user);
     return (
       <div>
         <Navbar

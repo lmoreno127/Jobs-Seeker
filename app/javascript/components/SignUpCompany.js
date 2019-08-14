@@ -1,4 +1,5 @@
 import React from "react";
+import ReCAPTCHA from "react-google-recaptcha";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Colombia from "../Colombia";
@@ -21,7 +22,10 @@ class SignUpCompany extends React.Component {
       ))
     });
   };
-
+  onChange = value => {
+    console.log("Captcha value:", value);
+  };
+  recaptchaRef = React.createRef();
   render() {
     return (
       <Form action="/companies" method="post" encType="multipart/form-data">
@@ -88,6 +92,12 @@ class SignUpCompany extends React.Component {
           <Form.Label>Photo Profile</Form.Label>
           <Form.Control type="file" name="company[profile_photo]" />
         </Form.Group>
+        <ReCAPTCHA
+          ref={this.recaptchaRef}
+          sitekey="6LeM6rIUAAAAABgoF2ji3hrIjn_FAoY2ylV3ppWi"
+          onChange={this.onChange}
+        />
+        ,
         <Button variant="primary" type="submit">
           Sign Up
         </Button>

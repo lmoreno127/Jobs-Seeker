@@ -1,13 +1,12 @@
 import React from "react";
 import Nav from "react-bootstrap/Nav";
-import { readdirSync } from "fs";
 
 class Navbar extends React.Component {
   render() {
     return (
       <Nav>
         <Nav.Item>
-          <Nav.Link href="/jobs">Jobs</Nav.Link>
+          <Nav.Link href="">Jobs</Nav.Link>
         </Nav.Item>
         {this.props.user ? (
           <React.Fragment>
@@ -31,10 +30,14 @@ class Navbar extends React.Component {
         {this.props.user && this.props.user.info.hasOwnProperty("address") ? (
           <React.Fragment>
             <Nav.Item>
-              <Nav.Link href="">My Jobs</Nav.Link>
+              <Nav.Link href={`/companies/${this.props.user.info.id}/jobs`}>
+                My Jobs
+              </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link href="">Create Jobs</Nav.Link>
+              <Nav.Link href={`/companies/${this.props.user.info.id}/jobs/new`}>
+                Create Jobs
+              </Nav.Link>
             </Nav.Item>
           </React.Fragment>
         ) : this.props.user ? (
