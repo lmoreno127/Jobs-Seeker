@@ -24,7 +24,7 @@ class SignUpCompany extends React.Component {
 
   render() {
     return (
-      <Form action="/companies" method="post">
+      <Form action="/companies" method="post" encType="multipart/form-data">
         <Form.Group controlId="Email">
           <Form.Label>Email address</Form.Label>
           <Form.Control
