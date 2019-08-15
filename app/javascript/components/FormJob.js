@@ -46,8 +46,8 @@ class FormJob extends React.Component {
             <Form.Control as="textarea" rows="3" name="job[description]" />
           </Form.Group>
           <Form.Group controlId="title">
-            <Form.Label>Experience Required</Form.Label>
-            <Form.Control type="number" name="job[experience_required]" />
+            <Form.Label>Seniority</Form.Label>
+            <Form.Control type="text" name="job[seniority]" />
           </Form.Group>
           <Form.Group controlId="contract">
             <Form.Label>Contract</Form.Label>

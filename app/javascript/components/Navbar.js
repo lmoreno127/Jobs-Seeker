@@ -11,7 +11,7 @@ class Navbar extends React.Component {
         {!this.props.user ||
         this.props.user.info.hasOwnProperty("last_name") ? (
           <Nav.Item>
-            <Nav.Link href="">Jobs</Nav.Link>
+            <Nav.Link href="/all_jobs">Jobs</Nav.Link>
           </Nav.Item>
         ) : (
           undefined
