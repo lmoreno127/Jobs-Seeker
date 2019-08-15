@@ -36,7 +36,6 @@ class Main extends React.Component {
     this.setState({ showModalSI: false, showChoose: true, isUser: false });
   };
   render() {
-    console.log(this.props.user);
     return (
       <div>
         <Navbar
@@ -78,7 +77,10 @@ class Main extends React.Component {
         {!this.props.user ? (
           <CompanySection showSignUp={this.showSignUp} />
         ) : (
-          <h1>Profile Info</h1>
+          <React.Fragment>
+            <h1>Profile Info</h1>
+            {/* {localStorage.setItem("usera", true)} */}
+          </React.Fragment>
         )}
 
         <Modal show={this.state.showModalSI} onHide={this.hideSignIn}>

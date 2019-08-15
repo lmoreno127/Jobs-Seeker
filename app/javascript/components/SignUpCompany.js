@@ -4,8 +4,8 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Colombia from "../Colombia";
 class SignUpCompany extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = { cities: [] };
     this.departments = Colombia.map((el, i) => (
       <option key={i}>{el.departamento}</option>

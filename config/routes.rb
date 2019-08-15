@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root "welcome#home"
-  devise_for :companies
+  devise_for :companies, controllers: { registrations: 'companies/registrations' }
   devise_for :users
   resources :companies do
       resources :jobs
