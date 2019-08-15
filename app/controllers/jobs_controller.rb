@@ -3,9 +3,9 @@ class JobsController < ApplicationController
       @jobs=Job.all
       @companies=Company.all
       if user_signed_in?
-       render component: 'Jobs', props: { jobs:@jobs, user:{ info:current_user, signOut: destroy_user_session_path},companies:@companies }
+       render component: 'Jobs', props: { jobs:@jobs.as_json(methods: :users_applications), user:{ info:current_user, signOut: destroy_user_session_path},companies:@companies }
       else
-        render component: 'Jobs', props: { jobs:@jobs,companies:@companies }
+        render component: 'Jobs', props: { jobs:@jobs.as_json(methods: :users_applications),companies:@companies }
       end
     end
     def index 

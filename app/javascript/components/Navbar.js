@@ -3,6 +3,7 @@ import Nav from "react-bootstrap/Nav";
 
 class Navbar extends React.Component {
   render() {
+    console.log(this.props);
     return (
       <Nav>
         <Nav.Item>
@@ -59,7 +60,7 @@ class Navbar extends React.Component {
           </React.Fragment>
         ) : this.props.user ? (
           <Nav.Item>
-            <Nav.Link href="">My Applications</Nav.Link>
+            <Nav.Link href="/myapplications">My Applications</Nav.Link>
           </Nav.Item>
         ) : (
           undefined

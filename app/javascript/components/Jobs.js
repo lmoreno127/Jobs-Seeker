@@ -5,6 +5,7 @@ import Navbar from "./Navbar";
 import Job from "./job";
 class Jobs extends React.Component {
   render() {
+    console.log(this.props.jobs);
     return (
       <React.Fragment>
         <Navbar user={this.props.user} />
@@ -12,7 +13,13 @@ class Jobs extends React.Component {
         <Container>
           {this.props.jobs.map((job, id) => (
             <Row key={id}>
-              <Job key={id} job={job} companies={this.props.companies} />
+              <Job
+                key={id}
+                job={job}
+                userApplied={job.users_applications}
+                companies={this.props.companies}
+                user={this.props.user}
+              />
             </Row>
           ))}
         </Container>

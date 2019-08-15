@@ -8,5 +8,11 @@ Rails.application.routes.draw do
   get "/all_jobs", to: "jobs#all_jobs"
   resource :company, only: [:show]
   resource :user, only: [:show]
+  resources :users do 
+      resources :jobs do
+        resources :appjobs
+      end
+  end
+  get "/myapplications", to: "appjobs#index"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
