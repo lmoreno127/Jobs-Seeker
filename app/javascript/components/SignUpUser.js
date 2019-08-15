@@ -26,7 +26,7 @@ class SignUpUser extends React.Component {
 
   render() {
     return (
-      <Form action="/users" method="post">
+      <Form action="/users" method="post" encType="multipart/form-data">
         <Form.Group controlId="Email">
           <Form.Label>Email address</Form.Label>
           <Form.Control
@@ -81,6 +81,23 @@ class SignUpUser extends React.Component {
           <Form.Control as="select" name="user[city]">
             {this.state.cities}
           </Form.Control>
+          <Form.Group controlId="Disabilities">
+            <Form.Label>Disabilities</Form.Label>
+            <Form.Control
+              as="textarea"
+              rows="3"
+              placeholder="Tell Us your disabilities"
+              name="user[disabilities]"
+            />
+          </Form.Group>
+        </Form.Group>
+        <Form.Group controlId="Curriculum">
+          <Form.Label>CV</Form.Label>
+          <Form.Control type="file" name="user[curriculum]" />
+        </Form.Group>
+        <Form.Group controlId="PhotoProfile">
+          <Form.Label>Photo Profile</Form.Label>
+          <Form.Control type="file" name="user[profile_photo]" />
         </Form.Group>
         <Button variant="primary" type="submit">
           Sign Up

@@ -6,7 +6,12 @@ import Navbar from "./Navbar";
 class EditCompany extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { cities: [] };
+    this.state = {
+      cities: [],
+      email: this.props.company.email,
+      name: this.props.company.name,
+      address: this.props.company.address
+    };
     this.departments = Colombia.map((el, i) => (
       <option key={i}>{el.departamento}</option>
     ));
@@ -21,6 +26,15 @@ class EditCompany extends React.Component {
         <option key={i}>{el}</option>
       ))
     });
+  };
+  handleChangeN = event => {
+    this.setState({ name: event.currentTarget.value });
+  };
+  handleChangeA = event => {
+    this.setState({ address: event.currentTarget.value });
+  };
+  handleChangeE = event => {
+    this.setState({ email: event.currentTarget.value });
   };
   updateCompany = event => {
     event.preventDefault();
@@ -54,6 +68,8 @@ class EditCompany extends React.Component {
               type="email"
               placeholder="Enter email"
               name="company[email]"
+              value={this.state.email}
+              onChange={this.handleChangeE}
             />
             <Form.Text className="text-muted">
               We'll never share your email with anyone else.
@@ -81,6 +97,8 @@ class EditCompany extends React.Component {
               type="text"
               placeholder="Company Name"
               name="company[name]"
+              value={this.state.name}
+              onChange={this.handleChangeN}
             />
           </Form.Group>
           <Form.Group controlId="Address">
@@ -89,6 +107,8 @@ class EditCompany extends React.Component {
               type="text"
               placeholder="Company Address"
               name="company[address]"
+              value={this.state.address}
+              onChange={this.handleChangeA}
             />
           </Form.Group>
           <Form.Group controlId="Department">

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root "welcome#home"
   devise_for :companies, controllers: { registrations: 'companies/registrations' }
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'users/registrations' }
   resources :companies do
       resources :jobs
   end
