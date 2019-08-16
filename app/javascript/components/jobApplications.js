@@ -19,8 +19,16 @@ class jobApplications extends React.Component {
   handleClose = () => {
     this.setState({ showM: false });
   };
-  deleteApp = (event, id) => {
-    console.log("iij");
+  deleteApp = (userid, jobappid) => {
+    fetch(`/users/${userid}/jobs/${this.props.job.id}/appjobs/${jobappid}`, {
+      method: "delete"
+    })
+      .then(res => {
+        location.assign("/");
+      })
+      .catch(err => {
+        console.log(err);
+      });
   };
 
   render() {
@@ -29,57 +37,70 @@ class jobApplications extends React.Component {
         <Navbar user={this.props.user} />
         <h1>{this.props.job.jobtitle + " Applications"}</h1>
         <Container>
-          {this.props.users.map((user, id) => (
+          {this.props.appjobs.map((appjob, id) => (
             <React.Fragment>
               <Row key={id}>
                 <Col key={id}>
                   <Card key={id}>
                     <img
-                      src={user.profile_photo.url}
+                      src={appjob.user.profile_photo.url}
                       alt="User Photo"
                       className="companylogo"
                     />
                     <Card.Body>
                       <Card.Title>
                         <a href="" onClick={this.handleShow}>
-                          {user.name + " " + user.last_name}
+                          {appjob.user.name + " " + appjob.user.last_name}
                         </a>
                       </Card.Title>
                       <h5>Disabilities</h5>
-                      <Card.Text>{user.disabilities}</Card.Text>
+                      <Card.Text>{appjob.user.disabilities}</Card.Text>
                     </Card.Body>
                   </Card>
                 </Col>
               </Row>
               <Modal show={this.state.showM} onHide={this.handleClose}>
                 <Modal.Header closeButton>
-                  <Modal.Title>{user.name + " " + user.last_name}</Modal.Title>
+                  <Modal.Title>
+                    {appjob.user.name + " " + appjob.user.last_name}
+                  </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                   <h5>Email</h5>
-                  {user.email}
+                  {appjob.user.email}
                   <h5>City</h5>
-                  {user.city}
+                  {appjob.user.city}
                   <h5>Department</h5>
-                  {user.department}
+                  {appjob.user.department}
                   <h5>Disabilities</h5>
-                  {user.disabilities}
+                  {appjob.user.disabilities}
                   <h5>Curriculum</h5>
-                  <form method="get" action={user.curriculum.url}>
+                  <form method="get" action={appjob.user.curriculum.url}>
                     <Button variant="info" type="submit">
                       Download
                     </Button>
                   </form>
                 </Modal.Body>
                 <Modal.Footer>
-                  <Button variant="danger" onClick={this.deleteApp(user.id)}>
-                    Delete Job
+                  <Button
+                    variant="danger"
+                    onClick={event => {
+                      event.preventDefault();
+                      this.deleteApp(appjob.user.id, appjob.id);
+                    }}
+                  >
+                    Delete Application
                   </Button>
                 </Modal.Footer>
               </Modal>
             </React.Fragment>
           ))}
         </Container>
+        {this.props.appjobs.length < 1 ? (
+          <h5>This job doesn't have applications</h5>
+        ) : (
+          undefined
+        )}
       </React.Fragment>
     );
   }

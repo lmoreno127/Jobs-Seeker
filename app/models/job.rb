@@ -1,6 +1,6 @@
 class Job < ApplicationRecord
     belongs_to :company
-    has_many :appjobs
+    has_many :appjobs,dependent: :destroy
     has_many :users, through: :appjobs
 
 

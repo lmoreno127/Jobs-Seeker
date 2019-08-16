@@ -32,6 +32,11 @@ class myApplications extends React.Component {
             </Row>
           ))}
         </Container>
+        {this.props.myjobs.length < 1 ? (
+          <h5>You don't have applications</h5>
+        ) : (
+          undefined
+        )}
       </React.Fragment>
     );
   }

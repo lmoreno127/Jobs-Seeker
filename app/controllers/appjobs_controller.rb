@@ -12,10 +12,14 @@ class AppjobsController < ApplicationController
     def indexjobsc
       @job=Job.find(params[:job_id])
       @appjobs=@job.appjobs
-      render component: 'jobApplications',props: {appjobs:@appjobs,job:@job,users:@job.users,user:{ info:current_company, signOut: destroy_user_session_path}}
+      render component: 'jobApplications',props: {appjobs:@appjobs.as_json(include: :user),job:@job,user:{ info:current_company, signOut: destroy_user_session_path}}
     end
     def indexa
       render component: 'myApplications',props: {myjobs:current_user.jobs.as_json(include: :company),user:{ info:current_user, signOut: destroy_user_session_path} }
+    end
+    def destroy
+      @appjob=Appjob.find(params[:id])
+      @appjob.destroy
     end
     
 end

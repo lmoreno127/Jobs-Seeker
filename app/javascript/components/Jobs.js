@@ -5,7 +5,6 @@ import Navbar from "./Navbar";
 import Job from "./job";
 class Jobs extends React.Component {
   render() {
-    console.log(this.props.jobs);
     return (
       <React.Fragment>
         <Navbar user={this.props.user} />

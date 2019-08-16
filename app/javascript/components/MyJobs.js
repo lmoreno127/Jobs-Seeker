@@ -16,6 +16,11 @@ class MyJobs extends React.Component {
             </Row>
           ))}
         </Container>
+        {this.props.jobs.length < 1 ? (
+          <h5>This company doesn't jobs</h5>
+        ) : (
+          undefined
+        )}
       </React.Fragment>
     );
   }
