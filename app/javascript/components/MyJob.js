@@ -1,6 +1,7 @@
 import React from "react";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
+import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 class MyJob extends React.Component {
@@ -18,12 +19,10 @@ class MyJob extends React.Component {
   };
   deleteJob = event => {
     event.preventDefault();
-    console.log("fsf");
     fetch(`/companies/${this.props.company.id}/jobs/${this.props.job.id}`, {
       method: "delete"
     })
       .then(res => {
-        console.log(res);
         if (res.status === 200) {
           location.reload();
         }
@@ -33,6 +32,7 @@ class MyJob extends React.Component {
       });
   };
   render() {
+    console.log(this.props.job);
     return (
       <React.Fragment>
         <Col>
@@ -49,9 +49,12 @@ class MyJob extends React.Component {
                 </a>
               </Card.Title>
               <Card.Text>{this.props.job.description}</Card.Text>
-              <Button variant="success" href="">
-                See Applications
-              </Button>
+              <form action="/companyapplications" method="get">
+                <input type="hidden" name="job_id" value={this.props.job.id} />
+                <Button variant="success" type="submit">
+                  See Applications
+                </Button>
+              </form>
             </Card.Body>
           </Card>
         </Col>
@@ -64,8 +67,8 @@ class MyJob extends React.Component {
             {this.props.job.description}
             <h5>City</h5>
             {this.props.job.city}
-            <h5>Experience Required</h5>
-            {this.props.job.experience_required}
+            <h5>Seniority</h5>
+            {this.props.job.seniority}
             <h5>Contract:</h5>
             {this.props.job.contract}
           </Modal.Body>

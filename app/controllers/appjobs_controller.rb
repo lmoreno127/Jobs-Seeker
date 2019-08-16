@@ -1,5 +1,4 @@
 class AppjobsController < ApplicationController
-    before_action :authenticate_user!
 
     def create
         @job=Job.find(params[:job_id])
@@ -10,10 +9,13 @@ class AppjobsController < ApplicationController
         redirect_to all_jobs_path
     end
 
-    def index 
-      @applications=current_user.appjobs
-      @companies=Company.all
-      render component: 'myApplications',props: {appjobs:@applications,myjobs:current_user.jobs.as_json(include: :company),companies:@companies,user:{ info:current_user, signOut: destroy_user_session_path} }
+    def indexjobsc
+      @job=Job.find(params[:job_id])
+      @appjobs=@job.appjobs
+      render component: 'jobApplications',props: {appjobs:@appjobs,job:@job,users:@job.users,user:{ info:current_company, signOut: destroy_user_session_path}}
+    end
+    def indexa
+      render component: 'myApplications',props: {myjobs:current_user.jobs.as_json(include: :company),user:{ info:current_user, signOut: destroy_user_session_path} }
     end
     
 end
