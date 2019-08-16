@@ -8,7 +8,7 @@ gem 'rails', '~> 5.2.3'
 gem 'rack-cors'
 gem 'jquery-rails'
 gem 'carrierwave', '>= 2.0.0.rc', '< 3.0' 
-# Use sqlite3 as the database for Active Record
+# Use sqlite3 as the database for Active Record r
 gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
