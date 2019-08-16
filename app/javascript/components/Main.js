@@ -45,28 +45,28 @@ class Main extends React.Component {
         />
         <Carousel interval="2000">
           <Carousel.Item>
-            <img className="d-block w-50" src={Im1} alt="First slide" />
+            <img className="d-block w-100" src={Im1} alt="First slide" />
             <Carousel.Caption>
               <h3>We want to help you finding job</h3>
               <p>We know abilities that you can give </p>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
-            <img className="d-block w-50" src={Im2} alt="Third slide" />
+            <img className="d-block w-100" src={Im2} alt="Third slide" />
             <Carousel.Caption>
               <h3>We want to help you finding job</h3>
               <p>We know abilities that you can give </p>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
-            <img className="d-block w-50" src={Im3} alt="Third slide" />
+            <img className="d-block w-100" src={Im3} alt="Third slide" />
             <Carousel.Caption>
               <h3>We want to help you finding job</h3>
               <p>We know abilities that you can give </p>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
-            <img className="d-block w-50" src={Im4} alt="Fourth slide" />
+            <img className="d-block w-100" src={Im4} alt="Fourth slide" />
             <Carousel.Caption>
               <h3>We want to help you finding job</h3>
               <p>We know abilities that you can give </p>
@@ -77,19 +77,20 @@ class Main extends React.Component {
         {!this.props.user ? (
           <CompanySection showSignUp={this.showSignUp} />
         ) : (
-          <React.Fragment>
-            <h1>Profile Info</h1>
-            {/* {localStorage.setItem("usera", true)} */}
-          </React.Fragment>
+          undefined
         )}
 
-        <Modal show={this.state.showModalSI} onHide={this.hideSignIn}>
+        <Modal
+          show={this.state.showModalSI}
+          onHide={this.hideSignIn}
+          className="signm"
+        >
           <Modal.Header closeButton>
             <Modal.Title>Sign In</Modal.Title>
           </Modal.Header>
           {this.state.showChoose ? (
             <Modal.Body>
-              <h2>Sign In as</h2>
+              <h5>Are you?</h5>
               <Button
                 variant="primary"
                 onClick={() => {
@@ -103,6 +104,7 @@ class Main extends React.Component {
                 onClick={() => {
                   this.setState({ showChoose: false, isUser: true });
                 }}
+                id="usersi"
               >
                 User
               </Button>
@@ -129,13 +131,17 @@ class Main extends React.Component {
             </Button> */}
           </Modal.Footer>
         </Modal>
-        <Modal show={this.state.showModalSU} onHide={this.hideSignUp}>
+        <Modal
+          show={this.state.showModalSU}
+          onHide={this.hideSignUp}
+          className="signm"
+        >
           <Modal.Header closeButton>
             <Modal.Title>Sign Up</Modal.Title>
           </Modal.Header>
           {this.state.showChoose ? (
             <Modal.Body>
-              <h2>Sign Up as</h2>
+              <h5>Do you want to sign up as?</h5>
               <Button
                 variant="primary"
                 onClick={() => {
@@ -149,6 +155,7 @@ class Main extends React.Component {
                 onClick={() => {
                   this.setState({ showChoose: false, isUser: true });
                 }}
+                id="usersu"
               >
                 User
               </Button>

@@ -18,7 +18,6 @@ class Job extends React.Component {
   handleClose = () => {
     this.setState({ showM: false });
   };
-  signIn = () => {};
   render() {
     return (
       <React.Fragment>
@@ -31,7 +30,7 @@ class Job extends React.Component {
                   alt="Company Photo"
                   className="companylogo"
                 />
-                <Card.Subtitle className="mb-2 text-muted">
+                <Card.Subtitle className="mb-2 text-muted namec">
                   {this.company.name}
                 </Card.Subtitle>
                 <Card.Body>
@@ -48,7 +47,7 @@ class Job extends React.Component {
                     alt="Company Photo"
                     className="companylogo"
                   />
-                  <Card.Subtitle className="mb-2 text-muted">
+                  <Card.Subtitle className="mb-2 text-muted namec">
                     {this.company.name}
                   </Card.Subtitle>
                   <Card.Body>
@@ -66,12 +65,12 @@ class Job extends React.Component {
                   alt="Company Photo"
                   className="companylogo"
                 />
-                <Card.Subtitle className="mb-2 text-muted">
+                <Card.Subtitle className="mb-2 text-muted namec">
                   {this.company.name}
                 </Card.Subtitle>
                 <Card.Body>
                   <Card.Title>{this.props.job.jobtitle}</Card.Title>
-                  <Card.Text>{this.props.job.description}</Card.Text>
+                  <Card.Text className="city">{this.props.job.city}</Card.Text>
                 </Card.Body>
               </Card>
             </a>
@@ -84,17 +83,19 @@ class Job extends React.Component {
             className="companylogo"
           />
           <Modal.Header closeButton>
-            <Modal.Title>{this.props.job.jobtitle}</Modal.Title>
+            <Modal.Title className="jobtitle">
+              {this.props.job.jobtitle}
+            </Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <h5>Description</h5>
-            {this.props.job.description}
+            <p>{this.props.job.description}</p>
             <h5>City</h5>
-            {this.props.job.city}
+            <p>{this.props.job.city}</p>
             <h5>Seniority</h5>
-            {this.props.job.seniority}
+            <p>{this.props.job.seniority}</p>
             <h5>Contract:</h5>
-            {this.props.job.contract}
+            <p>{this.props.job.contract}</p>
           </Modal.Body>
           <Modal.Footer>
             {this.props.user ? (
@@ -109,9 +110,7 @@ class Job extends React.Component {
                 </Button>
               </form>
             ) : (
-              <Button variant="primary" onClick={this.signIn}>
-                Sign In
-              </Button>
+              <h5>You Must Sign In to apply</h5>
             )}
           </Modal.Footer>
         </Modal>

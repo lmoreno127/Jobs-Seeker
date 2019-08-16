@@ -1,3 +1,18 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+body{
+    font-family: 'Poppins', sans-serif !important;
+    overflow-x: hidden;
+}
+.containers{
+    position: absolute;
+    left:-14px;
+}
+.card{
+    width: 265vh;
+}
+.nav{
+    background-color: #283e4a;
+}
 .logo{
     width:130px;
     height: 130px;
@@ -5,4 +20,119 @@
 .companylogo{
     width:50px;
     height:50px;
+    position: relative;
+    top: 25px;
+    left: 14px;
+}
+.modal-content{
+    padding: 20px 20px;
+}
+#jobb,#sub{
+    position: relative;
+    left: 617px;
+    width: 163px;
+}
+.close{
+    position: relative;
+    bottom: 69px;
+    width: 35px;
+}
+.nav-item a{
+    color:white;
+}
+.sign{
+    position:relative;
+    left:1200px;
+}
+.card-title{
+    position: relative;
+    bottom: 48px;
+    left: 63px;
+}
+.namec{
+    position: relative;
+    top: 36px;
+    left: 82px;
+}
+.city{
+    position: relative;
+    bottom: 20px;
+    left: 60px;
+}
+.jobtitle{
+    position: relative;
+    bottom: 30px;
+    left: 59px;
+}
+#usersi,#usersu{
+    margin-left: 64px;
+    width: 102px;
+}
+.signm .close{
+    position: relative;
+    bottom: 23px;
+    left: 8px;
+}
+#sob{
+    position: relative;
+    left: 1264px;
+}
+#companynamel{
+    position: relative;
+    bottom: 290px;
+    left: 346px;
+}
+#companyname{
+    position: relative;
+    bottom: 321px;
+    left: 417px;
+}
+#companyal{
+    position: relative;
+    bottom: 322px;
+    left: 344px;
+}
+#companya{
+    position: relative;
+    bottom: 353px;
+    left: 433px;
+}
+#companycl{
+    position: relative;
+    bottom: 354px;
+    left: 342px;
+}
+#companyc{
+    position: relative;
+    bottom: 385px;
+    left: 391px;
+}
+#companydl{
+    position: relative;
+    bottom: 388px;
+    left: 341px;
+}
+#companyd{
+    position: relative;
+    bottom: 419px;
+    left: 474px;
+}
+#editc{
+    position: relative;
+    bottom: 384px;
+    left: 341px;
+}
+
+#deletec{
+    position: relative;
+    bottom: 383px;
+    left: 402px;
+}
+/* .jobti{
+    position: relative;
+    bottom: 30px;
+} */
+#joba{
+    position: relative;
+    bottom: 30px;
 }

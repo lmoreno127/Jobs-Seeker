@@ -36,7 +36,7 @@ class jobApplications extends React.Component {
       <React.Fragment>
         <Navbar user={this.props.user} />
         <h1>{this.props.job.jobtitle + " Applications"}</h1>
-        <Container>
+        <Container className="containers">
           {this.props.appjobs.map((appjob, id) => (
             <React.Fragment>
               <Row key={id}>
@@ -48,7 +48,7 @@ class jobApplications extends React.Component {
                       className="companylogo"
                     />
                     <Card.Body>
-                      <Card.Title>
+                      <Card.Title id="joba">
                         <a href="" onClick={this.handleShow}>
                           {appjob.user.name + " " + appjob.user.last_name}
                         </a>
@@ -67,13 +67,13 @@ class jobApplications extends React.Component {
                 </Modal.Header>
                 <Modal.Body>
                   <h5>Email</h5>
-                  {appjob.user.email}
+                  <p>{appjob.user.email}</p>
                   <h5>City</h5>
-                  {appjob.user.city}
+                  <p>{appjob.user.city}</p>
                   <h5>Department</h5>
-                  {appjob.user.department}
+                  <p>{appjob.user.department}</p>
                   <h5>Disabilities</h5>
-                  {appjob.user.disabilities}
+                  <p>{appjob.user.disabilities}</p>
                   <h5>Curriculum</h5>
                   <form method="get" action={appjob.user.curriculum.url}>
                     <Button variant="info" type="submit">

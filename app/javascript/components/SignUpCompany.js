@@ -92,12 +92,6 @@ class SignUpCompany extends React.Component {
           <Form.Label>Photo Profile</Form.Label>
           <Form.Control type="file" name="company[profile_photo]" />
         </Form.Group>
-        <ReCAPTCHA
-          ref={this.recaptchaRef}
-          sitekey="6LeM6rIUAAAAABgoF2ji3hrIjn_FAoY2ylV3ppWi"
-          onChange={this.onChange}
-        />
-        ,
         <Button variant="primary" type="submit">
           Sign Up
         </Button>

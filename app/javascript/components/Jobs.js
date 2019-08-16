@@ -8,8 +8,8 @@ class Jobs extends React.Component {
     return (
       <React.Fragment>
         <Navbar user={this.props.user} />
-        <h1>Jobs Page</h1>
-        <Container>
+        <h1>Jobs</h1>
+        <Container className="containers">
           {this.props.jobs.map((job, id) => (
             <Row key={id}>
               <Job

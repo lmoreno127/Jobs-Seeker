@@ -5,8 +5,8 @@ class JobsSection extends React.Component {
     return (
       <div>
         <h2>Do you like to see jobs avaliable for you?</h2>
-        <form action="/jobs" method="get">
-          <Button variant="info" type="submit">
+        <form action="/all_jobs" method="get">
+          <Button variant="info" type="submit" id="jobb">
             See jobs
           </Button>
         </form>

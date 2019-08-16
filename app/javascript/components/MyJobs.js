@@ -9,7 +9,7 @@ class MyJobs extends React.Component {
       <React.Fragment>
         <Navbar user={this.props.user} />
         <h1>My Jobs</h1>
-        <Container>
+        <Container className="containers">
           {this.props.jobs.map((job, id) => (
             <Row key={id}>
               <MyJob key={id} job={job} company={this.props.user.info} />

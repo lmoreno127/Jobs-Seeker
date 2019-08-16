@@ -20,7 +20,7 @@ class Navbar extends React.Component {
 
         {this.props.user ? (
           <React.Fragment>
-            <Nav.Item>
+            <Nav.Item id="sob">
               <Nav.Link href={this.props.user.signOut}>Sign Out</Nav.Link>
             </Nav.Item>
             <Nav.Item>
@@ -37,10 +37,10 @@ class Navbar extends React.Component {
           </React.Fragment>
         ) : (
           <React.Fragment>
-            <Nav.Item>
+            <Nav.Item className="sign">
               <Nav.Link onClick={this.props.showSignIn}>Sign In</Nav.Link>
             </Nav.Item>
-            <Nav.Item>
+            <Nav.Item className="sign">
               <Nav.Link onClick={this.props.showSignUp}>Sign Up</Nav.Link>
             </Nav.Item>
           </React.Fragment>

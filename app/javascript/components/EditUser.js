@@ -8,10 +8,10 @@ class EditUser extends React.Component {
     super(props);
     this.state = {
       cities: [],
-      email: this.props.user.email,
-      name: this.props.user.name,
-      last_name: this.props.user.last_name,
-      disabilities: this.props.user.disabilities
+      email: this.props.user.info.email,
+      name: this.props.user.info.name,
+      last_name: this.props.user.info.last_name,
+      disabilities: this.props.user.info.disabilities
     };
     this.departments = Colombia.map((el, i) => (
       <option key={i}>{el.departamento}</option>
@@ -59,7 +59,7 @@ class EditUser extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <Navbar user={{ info: this.props.user }} />
+        <Navbar user={this.props.user} />
         <h1>Edit User</h1>
         <Form
           className="edit-user"

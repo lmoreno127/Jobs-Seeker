@@ -16,7 +16,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/edit
   def edit
-    render component: 'EditUser', props: {user: current_user}
+    render component: 'EditUser', props: {user:{info:current_user,signOut:destroy_user_session_path} }
    end
   # PUT /resource
    def update

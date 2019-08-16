@@ -20,7 +20,7 @@ class myApplications extends React.Component {
                     src={job.company.profile_photo.url}
                     className="companylogo"
                   />
-                  <Card.Subtitle className="mb-2 text-muted">
+                  <Card.Subtitle className="mb-2 text-muted namec">
                     {job.company.name}
                   </Card.Subtitle>
                   <Card.Body>

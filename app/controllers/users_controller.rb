@@ -3,7 +3,7 @@ class UsersController < ApplicationController
      @users=User.all
     end
     def show
-        render component: 'showUser', props:{user: current_user}
+        render component: 'showUser', props:{user: {info:current_user,signOut:destroy_user_session_path}}
     end
     def destroy
         @user=current_user

@@ -16,17 +16,17 @@ class showUser extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <Navbar user={{ info: this.props.user }} />
+        <Navbar user={this.props.user} />
         <h1>Show User</h1>
-        <img src={this.props.user.profile_photo.url} />
+        <img src={this.props.user.info.profile_photo.url} />
         <h5>Name:</h5>
-        {this.props.user.name + " " + this.props.user.last_name}
+        {this.props.user.info.name + " " + this.props.user.info.last_name}
         <h5>Disabilities:</h5>
-        {this.props.user.disabilities}
+        {this.props.user.info.disabilities}
         <h5>City:</h5>
-        {this.props.user.city}
+        {this.props.user.info.city}
         <h5>Department:</h5>
-        {this.props.user.department}
+        {this.props.user.info.department}
         <Button variant="warning" href="/users/edit">
           Edit User
         </Button>

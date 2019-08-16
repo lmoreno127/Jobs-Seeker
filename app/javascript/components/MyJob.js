@@ -43,12 +43,11 @@ class MyJob extends React.Component {
               className="companylogo"
             />
             <Card.Body>
-              <Card.Title>
+              <Card.Title className="jobti">
                 <a href="" onClick={this.handleShow}>
                   {this.props.job.jobtitle}
                 </a>
               </Card.Title>
-              <Card.Text>{this.props.job.description}</Card.Text>
               <form action="/companyapplications" method="get">
                 <input type="hidden" name="job_id" value={this.props.job.id} />
                 <Button variant="success" type="submit">
@@ -64,13 +63,13 @@ class MyJob extends React.Component {
           </Modal.Header>
           <Modal.Body>
             <h5>Description</h5>
-            {this.props.job.description}
+            <p>{this.props.job.description}</p>
             <h5>City</h5>
-            {this.props.job.city}
+            <p>{this.props.job.city}</p>
             <h5>Seniority</h5>
-            {this.props.job.seniority}
+            <p>{this.props.job.seniority}</p>
             <h5>Contract:</h5>
-            {this.props.job.contract}
+            <p>{this.props.job.contract}</p>
           </Modal.Body>
           <Modal.Footer>
             <Button

@@ -24,7 +24,7 @@ class FormJob extends React.Component {
   render() {
     return (
       <div>
-        <Navbar user={{ info: this.props.company }} />
+        <Navbar user={this.props.user} />
         <h1>{this.props.job ? "Update Job" : "Create Job"}</h1>
         <Form
           action={`/companies/${this.props.company.id}/jobs`}

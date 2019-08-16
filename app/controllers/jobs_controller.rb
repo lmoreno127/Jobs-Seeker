@@ -10,10 +10,10 @@ class JobsController < ApplicationController
     end
     def index 
      
-     render component: 'MyJobs', props: {user:{ info:current_company, signOut: destroy_user_session_path} ,jobs: current_company.jobs } 
+     render component: 'MyJobs', props: {user:{ info:current_company, signOut: destroy_company_session_path} ,jobs: current_company.jobs } 
     end
     def new
-        render component: 'FormJob', props: { company: current_company, method: "post" } 
+        render component: 'FormJob', props: { company: current_company, method: "post",user:{ info:current_company, signOut: destroy_company_session_path} } 
     end
     def create
         @job=Job.new(job_params)

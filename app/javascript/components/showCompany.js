@@ -16,22 +16,21 @@ class showCompany extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <Navbar user={{ info: this.props.company }} />
-        <h1>Show Company</h1>
+        <Navbar user={this.props.user} />
+        <h1>My Profile</h1>
         <img src={this.props.company.profile_photo.url} />
-        <h5>Name:</h5>
-
-        {this.props.company.name}
-        <h5>Address:</h5>
-        {this.props.company.address}
-        <h5>City:</h5>
-        {this.props.company.city}
-        <h5>Department:</h5>
-        {this.props.company.department}
-        <Button variant="warning" href="/companies/edit">
+        <h5 id="companynamel">Name:</h5>
+        <p id="companyname">{this.props.company.name}</p>
+        <h5 id="companyal">Address:</h5>
+        <p id="companya">{this.props.company.address}</p>
+        <h5 id="companycl">City:</h5>
+        <p id="companyc">{this.props.company.city}</p>
+        <h5 id="companydl">Department:</h5>
+        <p id="companyd">{this.props.company.department}</p>
+        <Button variant="warning" href="/companies/edit" id="editc">
           Edit Account
         </Button>
-        <Button variant="danger" onClick={this.deleteAccount}>
+        <Button variant="danger" onClick={this.deleteAccount} id="deletec">
           Delete Account
         </Button>
       </React.Fragment>
